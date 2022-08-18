@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-api
+  namespace: api    
+  
+  labels:
+    app: demo-api
+    
+   
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-api
+  template:
+    metadata:
+      
+      labels:
+        app: demo-api     
+      
+
+    spec:
+      containers:
+        - name: demo-api
+          image: saturn203/demo-api
+          ports:
+          - name: http
+            containerPort: 8080
