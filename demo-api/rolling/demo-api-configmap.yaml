@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-api-configmap
+  namespace: api
+  
+data:
+  DB_URL: "mysql-svc.db.svc:3306"
+  DATABASE: "blackstar"
+  USERNAME: "blackstar"
+  PASSWORD: "1234"
