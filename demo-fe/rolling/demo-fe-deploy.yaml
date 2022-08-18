@@ -30,3 +30,17 @@ spec:
           envFrom:
             - configMapRef:
                 name: demo-fe-configmap
+          env:
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP       
+
+          - name: JAVA_TOOL_OPTIONS
+            value: >-
+              -javaagent:/pinpoint-agent-2.4.0/pinpoint-bootstrap-2.4.0.jar
+              -Dpinpoint.container
+              -Dpinpoint.applicationName=demo-fe
+              -Dpinpoint.agentId=$(POD_IP)
+              -Dpinpoint.profiler.profiles.active=release
+              -Dprofiler.transport.grpc.collector.ip=pinpoint-pinpoint-collector.pinpoint-system.svc

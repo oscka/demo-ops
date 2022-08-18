@@ -8,4 +8,4 @@ resources:
 
 images:
 - name: saturn203/demo-api
-  newTag: "stable-1.0"
+  newTag: "pinpoint-apm-v1.0"
