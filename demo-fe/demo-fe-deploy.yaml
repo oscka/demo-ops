@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-fe
+  namespace: fe    
+  
+  labels:
+    app: demo-fe
+    
+   
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-fe
+  template:
+    metadata:
+      
+      labels:
+        app: demo-fe     
+      
+
+    spec:
+      containers:
+        - name: demo-fe
+          image: saturn203/demo-fe
+          ports:
+          - name: http
+            containerPort: 8080
+        
